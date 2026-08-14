@@ -8,9 +8,7 @@
 
 ## 2. Ссылка на опубликованную страницу
 
-`https://<username>.github.io/snapbuild-test-task/`
-
-Замените `<username>` и имя репозитория при публикации.
+`https://valushagrinchik.github.io/snapbuild-test-task/`
 
 ## 3. Инструкция по локальному запуску
 
