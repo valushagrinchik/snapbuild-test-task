@@ -1,0 +1,1 @@
+(function(){document.addEventListener("click",function(e){var t=document.getElementById("dds-main-toggle");if(!t||!t.checked)return;var inMenu=e.target.closest?e.target.closest(".dds-main-menu"):null;if(inMenu){if(e.target.closest("a"))t.checked=false;return}if(e.target===t||(e.target.closest&&e.target.closest(".dds-main-bar")))return;t.checked=false},true)})();

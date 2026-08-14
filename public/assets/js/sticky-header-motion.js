@@ -1,0 +1,1 @@
+(function(){var h=document.getElementById("header");if(!h)return;var queued=false;function update(){h.classList.toggle("is-scrolled",window.scrollY>12);queued=false}function onScroll(){if(queued)return;queued=true;requestAnimationFrame(update)}window.addEventListener("scroll",onScroll,{passive:true});update()})();

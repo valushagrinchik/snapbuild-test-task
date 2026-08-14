@@ -765,3 +765,13 @@
     display: none;
   }
 }
+
+/* Hero media: slide up and fade in without scaling */
+html.hero-motion-ready #hero .dds-app-preview-media {
+  animation: hero-media-enter 1100ms var(--motion-ease) 220ms both;
+}
+
+@keyframes hero-media-enter {
+  from { opacity: 0; transform: translateY(46px); }
+  to { opacity: 1; transform: translateY(0); }
+}
