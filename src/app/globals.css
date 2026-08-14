@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-background: #f2f2f4;
+  --text-primary: #000;
+  --text-secondary: #5a5b62;
+  --foreground-primary: #fff;
+  --card-radius: 24px;
+  --font-primary: "TT Commons Pro", "Inter", sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-background);
+  color: var(--text-primary);
+  overflow-x: clip;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated Section Styles */
+.animated-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animated-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero section specific animation */
+.animated-section#hero {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animated-section#hero .dds-app-preview-card {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animated-section#hero.is-visible .dds-app-preview-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.animated-section#hero.is-visible .dds-app-preview-heading {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.animated-section#hero.is-visible .dds-app-preview-subtitle {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.animated-section#hero.is-visible .dds-app-preview-cta {
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.animated-section#hero.is-visible .dds-app-preview-media {
+  animation: fadeInRight 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Staggered animation delays */
+.animated-section:nth-child(1) { transition-delay: 0ms; }
+.animated-section:nth-child(2) { transition-delay: 100ms; }
+.animated-section:nth-child(3) { transition-delay: 200ms; }
+.animated-section:nth-child(4) { transition-delay: 300ms; }
+.animated-section:nth-child(5) { transition-delay: 400ms; }
+.animated-section:nth-child(6) { transition-delay: 500ms; }
+
+/* Hover effects for cards */
+.dds-steps-card,
+.dds-why-safe-point-tile,
+.dds-rmap-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dds-steps-card:hover,
+.dds-why-safe-point-tile:hover,
+.dds-rmap-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button hover effects */
+.dds-btn,
+.dds-launch-btn,
+.dds-app-preview-cta {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dds-btn:hover,
+.dds-launch-btn:hover,
+.dds-app-preview-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Link hover effects */
+.dds-main-link,
+.dds-footer-link,
+.dds-main-menu-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.dds-main-link::after,
+.dds-footer-link::after,
+.dds-main-menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.dds-main-link:hover::after,
+.dds-footer-link:hover::after,
+.dds-main-menu-link:hover::after {
+  width: 100%;
+}
+
+/* Logo hover effect */
+.dds-main-logo img,
+.dds-footer-logo img {
+  transition: transform 0.3s ease;
+}
+
+.dds-main-logo:hover img,
+.dds-footer-logo:hover img {
+  transform: scale(1.05);
+}
+
+/* FAQ accordion animation */
+.dds-accordion-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.dds-accordion-toggle:checked + .dds-accordion-question + .dds-accordion-answer {
+  max-height: 500px;
+  padding: 16px 0;
+}
+
+/* Header scroll effect */
+.header.is-scrolled .dds-main-bar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile menu */
+.dds-main-menu-hidden {
+  display: none;
+}
+
+.dds-main-menu {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for CTA */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.dds-app-preview-cta:hover {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* Marquee animation fixes */
+.dds-marquee-content {
+  display: flex;
+  align-items: center;
+  animation: marquee 30s linear infinite;
+}
+
+.dds-marquee-content:nth-child(2) {
+  animation-delay: -15s;
+}
+
+.dds-marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 40px;
+  height: 100%;
+}
+
+.dds-marquee-item img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Ensure marquee track is visible */
+.dds-marquee-track {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 80px;
+  height: 80px;
+}
+
+.dds-logos {
+  padding: 60px 0;
+  background: var(--color-background);
+}
+
+.dds-marquee-eyebrow {
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+}
+
+/* Ensure logos are visible without blocking animation */
+.dds-logos {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.dds-marquee-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.dds-marquee-item img {
+  opacity: 1 !important;
+  display: block !important;
+}
